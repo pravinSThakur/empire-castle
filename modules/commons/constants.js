@@ -6,7 +6,12 @@
 var CONSTANTS = {
     LOG_LEVEL: 'info',
     BASE_PATH : "api/v1",
-    PORT: 8000
+    PORT: 8000,
+    TROOP_UNITS: [
+        'Spearmen',
+        'Swordsmen',
+        'Archers'
+    ]
 };
 
 module.exports = CONSTANTS;

@@ -29,6 +29,9 @@ empireCastleService.prototype.createArmy = function(req , res) {
     var max = armySize - numUnits + 1;
     var t=0;
     for(; t<numUnits-1; t++){
+        if(max==1){
+            min = 0;
+        }
         var troopName = constants.TROOP_UNITS[t];
         var troopSize = random(min, max);
         responseJson[troopName] = troopSize+1;

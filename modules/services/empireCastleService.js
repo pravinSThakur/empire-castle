@@ -31,10 +31,11 @@ empireCastleService.prototype.createArmy = function(req , res) {
     for(; t<numUnits-1; t++){
         var troopName = constants.TROOP_UNITS[t];
         var troopSize = random(min, max);
-        responseJson[troopName] = troopSize + 1;
+        responseJson[troopName] = troopSize+1;
         max = max - troopSize;
     }
     responseJson[constants.TROOP_UNITS[t]] = max;
+    logger.info("Crated army with troops: " + JSON.stringify(responseJson));
     responseHandler.sendJsonResponse(req, res, 200, responseJson)
 };
 

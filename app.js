@@ -35,3 +35,5 @@ app.use(function (err, req, res, next) {
 var server = app.listen(constants.PORT, function(){
     logger.info('!! Empire castel service started on port ' + constants.PORT +" !!");
 });
+
+module.exports = server;

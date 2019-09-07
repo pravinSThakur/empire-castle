@@ -43,4 +43,24 @@ describe('Functional API Tests', function () {
                 done();
             })
     });
+
+    it("POST /api/v1/createArmy : Corner case - army size 3", function (done) {
+        var payload = {
+            size: 3
+        };
+        chai.request(server)
+            .post('/api/v1/createArmy')
+            .send(payload)
+            .end(function (error, res) {
+                assert.equal(res.status, 200);
+                assert.equal(error, null);
+                assert.exists(res.body);
+                var armySize = 0;
+                Object.keys(res.body).forEach(function(troopName){
+                    armySize += res.body[troopName];
+                });
+                assert(armySize==3);
+                done();
+            })
+    });
 });
